@@ -1,0 +1,292 @@
+/*
+Theme Name: evolution
+Theme URI: https://evolution-wp
+Author: Caroline BONY, Thomas VAGNER
+Description: Thème wordpress pour blog.
+Version: 1.0
+*/
+@import'sass/variables.scss';
+
+$blue : #8dd8f8;
+
+/* -------------Font--------------*/
+@font-face {
+    font-family: "open sans regular";
+    font-style: normal;
+    font-weight: normal;
+    src: local('OpenSans-Regular'), url('font/OpenSans-Regular') format('.ttf');
+    }
+
+@font-face {
+    font-family: "open sans semibold";
+    src: local('OpenSans-SemiBold'), url('font/OpenSans-SemiBold') format('.ttf');
+}    
+/* -------------Base--------------*/
+*{
+    padding:0;
+    margin: 0;
+}
+
+body{
+    font-family: "open sans regular";
+    overflow-x: hidden;
+}
+
+.container-fluid{
+    padding: 0;
+}
+
+/* -------------NavBar--------------*/
+.logo {
+    width: 50px;
+    height: auto;
+    padding-left: 1rem;
+    padding-top: 1rem;
+}
+.barnav{
+    background-color: black;
+    position : fixed;
+    z-index: 100;
+    width: 100vw;
+    left : 0;
+    padding : 0.3rem;
+
+        .menu-main-menu-container{
+        width: 90vw;
+            ul{
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                width: 100%;
+                list-style: none;
+                margin-bottom: 0;
+                li{
+                    padding-top : 0.5rem;
+                    padding-bottom : 0.5rem;
+                    padding-left: 2rem;
+                    font-size: 1rem;
+                    
+                    a{
+                        color: $blue;
+                    }
+                }
+            }
+        }
+}
+/* ---------------------------FRONT-PAGE----------------------- */
+.home{
+    width : 100vw;
+    position: relative;
+    .banner-img{
+    width : 100vw;
+    height : auto;
+    }
+    .title{
+      display: flex;
+      justify-content: center;
+        h1{ 
+        position: absolute;
+        top: 10%;
+         color: $blue;   
+         font-size: 65px;
+         font-family: "open sans semibold";
+        }
+    }
+}
+
+.container-articles{
+    .title-h2-front-page{
+        margin: 30px 0;
+        text-align: center;
+    }
+
+    .last-articles{ 
+        padding: 30px; 
+        display: grid;
+        grid-template-columns: repeat(3, 32vw);
+        
+        .post{
+            cursor: url(img/cursor.svg)30 30, move;
+            padding: 30px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            &:hover{
+                border: black 2px solid;
+            }
+
+          img{
+              width: 20vw;
+              height: 200px;
+              object-fit: cover;
+
+          }
+          h3{
+              margin-top: 25px;
+              a{
+                cursor: url(img/cursor.svg)30 30, move;
+                text-decoration: none;
+                color: black;
+                }
+          } 
+          p{
+            text-align: justify;
+          }
+          button{
+            text-align: center;
+            border: black solid 2px;
+            background-color: white;
+            padding: 0;
+            &:hover{
+                background-color: black;
+            }
+            .post_link{
+                cursor: url(img/cursor.svg)30 30, move;
+                text-decoration: none;
+                color: black;
+                padding: 5px 30px;
+                box-sizing: border-box;
+                &:hover{
+                    color: white;
+                }
+            }
+          }
+        }
+    }
+}
+
+/* ---------------------------FRONT-PAGE----------------------- */
+
+.single_post{
+    .title{
+       padding-top: 100px; 
+       margin-left: 50px;
+       .data_single_post{
+           display: flex;
+           flex-direction: row;
+           ul{
+               list-style: none;
+               padding: 0;
+               a{
+                color: black;
+               }
+               
+           }
+       }
+    }
+    .container_single_post{
+        display: flex;
+        margin: 50px;
+        .post_content{
+            width: 60vw;
+            text-align: justify;
+            img{
+                width: 60vw;
+                height: auto; 
+            }
+        }
+        .category{
+            position: relative;
+            margin-left: 50px;
+            width: 30vw;
+            background-color: black;
+            color: $blue;
+            h2{
+                padding: 40px 20px;
+            }
+            .cross1{
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            p{
+                padding-left: 20px;
+            }
+            .cross2{
+                position: absolute;
+                bottom: 20px;
+                left: 20px;
+            }
+            .light_line{
+                width: 25%;
+                position: absolute;
+                bottom: 0px;
+                right: 0px;
+            }
+        }
+    }
+}
+.pagination{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+/* ---------------------------PROMO-PAGE----------------------- */
+
+.pax{
+    display: grid;
+    grid-template-columns: repeat(2, 40vw);
+    
+    h1{
+        padding: 50px;
+    }
+    
+    .diamond{
+    position: relative;
+    display: block;
+    width: 400px;
+    height: 400px;
+    cursor: url(img/cursor.svg)30 30, move;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    margin: 20px;
+    background-color: black;
+    
+        a{ 
+            cursor: url(img/cursor.svg)30 30, move;    
+            .diamond_img{
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
+            
+            }
+            .overlay {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 100%;
+                width: 100%;
+                opacity: 0;
+                transition: .5s ease;
+                background-color: black;
+            
+                .text{
+                    position: absolute;    
+                    top: 40%;
+                    left: 10%;
+                    color: $blue;
+                    -webkit-transform: translate(-50%, -50%);
+                    -ms-transform: translate(-50%, -50%);
+                    transform: translate(-50%, -50%);
+                    text-align: center;
+
+                    
+                }
+            }
+        }
+    }
+   
+}
+
+/* ---------------------------FOOTER----------------------- */
+
+footer{
+    background-color: black;
+    p{
+        margin: 0;
+       padding: 20px;
+        color: white;
+    }
+}

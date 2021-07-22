@@ -1,0 +1,350 @@
+@charset "UTF-8";
+/*
+Theme Name: evolution
+Theme URI: https://evolution-wp
+Author: Caroline BONY, Thomas VAGNER
+Description: Thème wordpress pour blog.
+Version: 1.0
+*/
+/*
+font-family: 'Lato', sans-serif;
+font-family: 'Playfair Display', serif;
+*/
+/* -------------Font--------------*/
+@font-face {
+  font-family: "open sans regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("OpenSans-Regular"), url("font/OpenSans-Regular") format(".ttf");
+}
+
+@font-face {
+  font-family: "open sans semibold";
+  src: local("OpenSans-SemiBold"), url("font/OpenSans-SemiBold") format(".ttf");
+}
+
+/* -------------Base--------------*/
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "open sans regular";
+  overflow-x: hidden;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+/* -------------NavBar--------------*/
+.logo {
+  width: 50px;
+  height: auto;
+  padding-left: 1rem;
+  padding-top: 1rem;
+}
+
+.barnav {
+  background-color: black;
+  position: fixed;
+  z-index: 100;
+  width: 100vw;
+  left: 0;
+  padding: 0.3rem;
+}
+
+.barnav .menu-main-menu-container {
+  width: 90vw;
+}
+
+.barnav .menu-main-menu-container ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 100%;
+  list-style: none;
+  margin-bottom: 0;
+}
+
+.barnav .menu-main-menu-container ul li {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 2rem;
+  font-size: 1rem;
+}
+
+.barnav .menu-main-menu-container ul li a {
+  color: #8dd8f8;
+}
+
+/* ---------------------------FRONT-PAGE----------------------- */
+.home {
+  width: 100vw;
+  position: relative;
+}
+
+.home .banner-img {
+  width: 100vw;
+  height: auto;
+}
+
+.home .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.home .title h1 {
+  position: absolute;
+  top: 10%;
+  color: #8dd8f8;
+  font-size: 65px;
+  font-family: "open sans semibold";
+}
+
+.container-articles .title-h2-front-page {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.container-articles .last-articles {
+  padding: 30px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (32vw)[3];
+      grid-template-columns: repeat(3, 32vw);
+}
+
+.container-articles .last-articles .post {
+  cursor: url(img/cursor.svg) 30 30, move;
+  padding: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container-articles .last-articles .post:hover {
+  border: black 2px solid;
+}
+
+.container-articles .last-articles .post img {
+  width: 20vw;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.container-articles .last-articles .post h3 {
+  margin-top: 25px;
+}
+
+.container-articles .last-articles .post h3 a {
+  cursor: url(img/cursor.svg) 30 30, move;
+  text-decoration: none;
+  color: black;
+}
+
+.container-articles .last-articles .post p {
+  text-align: justify;
+}
+
+.container-articles .last-articles .post button {
+  text-align: center;
+  border: black solid 2px;
+  background-color: white;
+  padding: 0;
+}
+
+.container-articles .last-articles .post button:hover {
+  background-color: black;
+}
+
+.container-articles .last-articles .post button .post_link {
+  cursor: url(img/cursor.svg) 30 30, move;
+  text-decoration: none;
+  color: black;
+  padding: 5px 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container-articles .last-articles .post button .post_link:hover {
+  color: white;
+}
+
+/* ---------------------------FRONT-PAGE----------------------- */
+.single_post .title {
+  padding-top: 100px;
+  margin-left: 50px;
+}
+
+.single_post .title .data_single_post {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.single_post .title .data_single_post ul {
+  list-style: none;
+  padding: 0;
+}
+
+.single_post .title .data_single_post ul a {
+  color: black;
+}
+
+.single_post .container_single_post {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 50px;
+}
+
+.single_post .container_single_post .post_content {
+  width: 60vw;
+  text-align: justify;
+}
+
+.single_post .container_single_post .post_content img {
+  width: 60vw;
+  height: auto;
+}
+
+.single_post .container_single_post .category {
+  position: relative;
+  margin-left: 50px;
+  width: 30vw;
+  background-color: black;
+  color: #8dd8f8;
+}
+
+.single_post .container_single_post .category h2 {
+  padding: 40px 20px;
+}
+
+.single_post .container_single_post .category .cross1 {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.single_post .container_single_post .category p {
+  padding-left: 20px;
+}
+
+.single_post .container_single_post .category .cross2 {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.single_post .container_single_post .category .light_line {
+  width: 25%;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+/* ---------------------------PROMO-PAGE----------------------- */
+.pax {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (40vw)[2];
+      grid-template-columns: repeat(2, 40vw);
+}
+
+.pax h1 {
+  padding: 50px;
+}
+
+.pax .diamond {
+  position: relative;
+  display: block;
+  width: 400px;
+  height: 400px;
+  cursor: url(img/cursor.svg) 30 30, move;
+  -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+          clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  margin: 20px;
+  background-color: black;
+}
+
+.pax .diamond a {
+  cursor: url(img/cursor.svg) 30 30, move;
+}
+
+.pax .diamond a .diamond_img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  width: 100%;
+}
+
+.pax .diamond a .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  background-color: black;
+}
+
+.pax .diamond a .overlay .text {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  color: #8dd8f8;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* ---------------------------FOOTER----------------------- */
+footer {
+  background-color: black;
+}
+
+footer p {
+  margin: 0;
+  padding: 20px;
+  color: white;
+}
+/*# sourceMappingURL=style.css.map */
