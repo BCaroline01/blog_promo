@@ -31,7 +31,6 @@ font-family: 'Playfair Display', serif;
 
 body {
   font-family: "open sans regular";
-  overflow-x: hidden;
 }
 
 .container-fluid {
@@ -39,20 +38,22 @@ body {
 }
 
 /* -------------NavBar--------------*/
-.logo {
-  width: 50px;
-  height: auto;
-  padding-left: 1rem;
-  padding-top: 1rem;
-}
-
 .barnav {
   background-color: black;
-  position: fixed;
   z-index: 100;
   width: 100vw;
   left: 0;
   padding: 0.3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.barnav .logo_container {
+  width: 50px;
+  height: auto;
+  padding-left: 1rem;
+  padding-top: 1rem;
 }
 
 .barnav .menu-main-menu-container {
@@ -120,7 +121,7 @@ body {
 }
 
 .container-articles .last-articles {
-  padding: 30px;
+  padding: 10px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (32vw)[3];
@@ -278,34 +279,72 @@ body {
 }
 
 /* ---------------------------PROMO-PAGE----------------------- */
-.pax {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (40vw)[2];
-      grid-template-columns: repeat(2, 40vw);
+h1 {
+  font-size: 50px;
+  color: #8dd8f8;
+  padding: 50px 0;
 }
 
-.pax h1 {
-  padding: 50px;
+.promo {
+  width: 100vw;
+  background-image: url(img/background_promo.png);
+  background-size: contain;
 }
 
-.pax .diamond {
+.promo .diamond_container {
+  width: 70vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 50px auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.promo .diamond_container .diamond {
   position: relative;
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   width: 400px;
   height: 400px;
   cursor: url(img/cursor.svg) 30 30, move;
   -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
           clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  margin: 20px;
+  margin: 0 40px;
   background-color: black;
 }
 
-.pax .diamond a {
+.promo .diamond_container .diamond:nth-child(3n + 1) {
+  margin-top: 10%;
+  -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
+}
+
+.promo .diamond_container .diamond:nth-child(3n + 2) {
+  margin-top: 10%;
+  -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
+}
+
+.promo .diamond_container .diamond:nth-child(3n + 3) {
+  position: absolute;
+  top: 100%;
+}
+
+.promo .diamond_container .diamond:nth-child(3n + 6) {
+  position: absolute;
+  top: 180%;
+}
+
+.promo .diamond_container .diamond a {
   cursor: url(img/cursor.svg) 30 30, move;
 }
 
-.pax .diamond a .diamond_img {
+.promo .diamond_container .diamond a .diamond_img {
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
@@ -313,7 +352,7 @@ body {
   width: 100%;
 }
 
-.pax .diamond a .overlay {
+.promo .diamond_container .diamond a .overlay {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -327,13 +366,15 @@ body {
   background-color: black;
 }
 
-.pax .diamond a .overlay .text {
-  position: absolute;
-  top: 40%;
-  left: 10%;
+.promo .diamond_container .diamond a .overlay:hover {
+  opacity: 1;
+}
+
+.promo .diamond_container .diamond a .overlay p {
+  width: 80%;
+  padding-top: 30%;
+  padding-left: 20%;
   color: #8dd8f8;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
   text-align: center;
 }
 

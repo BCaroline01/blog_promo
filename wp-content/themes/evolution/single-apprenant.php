@@ -1,13 +1,9 @@
 <?php get_header(); ?>
     <?php 
-    $args = array(
-        'post_type'      => 'apprenant',
-     );
     
-    $pax = new WP_Query($args);
-    
-    while($pax->have_posts() ) : $pax->the_post(); ?>
+    while(have_posts() ) : the_post(); ?>
     <div class="img_diamond">
+        <p>lkzbmozribgeroghyoeot(iym</p>
         <?php the_post_thumbnail('medium_large', ['class' => 'thumbnail', 'alt' => '']); ?>
     </div>
     

@@ -31,4 +31,6 @@
         <?php endwhile; ?>
     </div>
 </section>
+
+
 <?php get_footer(); ?>

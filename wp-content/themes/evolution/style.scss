@@ -29,7 +29,7 @@ $blue : #8dd8f8;
 
 body{
     font-family: "open sans regular";
-    overflow-x: hidden;
+    
 }
 
 .container-fluid{
@@ -37,19 +37,22 @@ body{
 }
 
 /* -------------NavBar--------------*/
-.logo {
+
+.barnav{
+    background-color: black;
+    
+    z-index: 100;
+    width: 100vw;
+    left : 0;
+    padding : 0.3rem;
+    display: flex;
+    
+    .logo_container {
     width: 50px;
     height: auto;
     padding-left: 1rem;
     padding-top: 1rem;
 }
-.barnav{
-    background-color: black;
-    position : fixed;
-    z-index: 100;
-    width: 100vw;
-    left : 0;
-    padding : 0.3rem;
 
         .menu-main-menu-container{
         width: 90vw;
@@ -101,7 +104,8 @@ body{
     }
 
     .last-articles{ 
-        padding: 30px; 
+        
+        padding: 10px; 
         display: grid;
         grid-template-columns: repeat(3, 32vw);
         
@@ -223,61 +227,85 @@ body{
 }
 
 /* ---------------------------PROMO-PAGE----------------------- */
+.title_promo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20%;
+ h1{
+        font-size: 50px;
+        color: $blue;
+    }   
+}
 
-.pax{
-    display: grid;
-    grid-template-columns: repeat(2, 40vw);
-    
-    h1{
-        padding: 50px;
-    }
-    
-    .diamond{
-    position: relative;
-    display: block;
-    width: 400px;
-    height: 400px;
-    cursor: url(img/cursor.svg)30 30, move;
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    margin: 20px;
-    background-color: black;
-    
-        a{ 
-            cursor: url(img/cursor.svg)30 30, move;    
-            .diamond_img{
-                object-fit: cover;
-                object-position: center;
-                width: 100%;
-            
-            }
-            .overlay {
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 100%;
-                width: 100%;
-                opacity: 0;
-                transition: .5s ease;
-                background-color: black;
-            
-                .text{
-                    position: absolute;    
-                    top: 40%;
-                    left: 10%;
-                    color: $blue;
-                    -webkit-transform: translate(-50%, -50%);
-                    -ms-transform: translate(-50%, -50%);
-                    transform: translate(-50%, -50%);
-                    text-align: center;
 
-                    
+
+.promo{
+    width: 100vw;
+    background-image: url(img/background_promo.png);
+    background-size: contain;
+   
+   
+    .diamond_container{
+    width: 70vw;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px auto ;
+    justify-content: center;
+    
+
+        .diamond{
+        position: relative;    
+        display: flex;
+        width: 400px;
+        height: 400px;
+        cursor: url(img/cursor.svg)30 30, move;
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        margin: 0 40px;
+        background-color: black;
+
+        &:nth-child(3n + 1) { margin-top: 10%;
+                                flex-basis: 40%; }
+        &:nth-child(3n + 2) { margin-top: 10%;
+                            flex-basis: 40%; }
+        &:nth-child(3n + 3) { position: absolute; 
+                            top: 100%;  }
+        &:nth-child(3n + 6) { position: absolute; 
+                            top: 180%;  }
+
+            a{ 
+                cursor: url(img/cursor.svg)30 30, move;    
+                .diamond_img{
+                    object-fit: cover;
+                    object-position: center;
+                    width: 100%;
+                
+                }
+                .overlay {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    height: 100%;
+                    width: 100%;
+                    opacity: 0;
+                    transition: .5s ease;
+                    background-color: black;
+                    &:hover{opacity: 1;}
+                
+                    p{
+                        width: 80%;
+                        padding-top: 30%;
+                        padding-left: 20%;
+                        color: $blue;
+                        text-align: center;
+                        
+                    }
                 }
             }
-        }
-    }
-   
+        }   
+    }  
 }
 
 /* ---------------------------FOOTER----------------------- */

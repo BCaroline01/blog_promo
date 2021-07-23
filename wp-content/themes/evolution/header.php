@@ -9,8 +9,8 @@
   <body <?php body_class(); ?>>
     <div class="container-fluid">
       <header class="header">
-          <div class="upperbar container">
-            <nav class="barnav row">
+          <div class="upperbar">
+            <nav class="barnav">
               <div class="logo_container">
                 <a href="<?php echo home_url( '/' ); ?>">
                   <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="Logo" class="logo">
