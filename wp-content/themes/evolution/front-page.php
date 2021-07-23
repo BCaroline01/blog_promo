@@ -24,11 +24,40 @@
                 <?php the_post_thumbnail('medium', ['class' => 'thumbnail', 'alt' => '']); ?>
                 <h3><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h3>
                 <p class="post__meta">
-                    <?php the_excerpt(); ?>   
+                    <?php the_excerpt(); ?>
                 </p>
                 <button><a href="<?php the_permalink(); ?>" class="post_link">Lire la suite</a></button>
             </div>
         <?php endwhile; ?>
     </div>
 </section>
+<!-- *****************************Avis des Apprenants*************************** -->
+<section class="container-reviews">
+    <div class="all-reviews">
+        <?php
+        $args = array(
+            'number_post'      => -1,
+            'post_type'      => 'apprenant',
+        );
+
+        $pax = new WP_Query($args);
+
+        while ($pax->have_posts()) : $pax->the_post(); ?>
+
+            <div id="slider">
+                <a href="#" class="control_next">>></a>
+                <a href="#" class="control_prev"><</a>
+                <ul>
+                    <li><?php echo get_fields()['avis']; ?></li>
+                    <li><?php echo get_fields()['note']; ?></li>
+                </ul>
+                
+            </div>
+            
+
+        <?php endwhile; ?>
+    </div>
+</section>
+
+
 <?php get_footer(); ?>

@@ -33,6 +33,7 @@ function ph_register_assets () {
     wp_enqueue_style('bootstrap');
     wp_enqueue_script('bootstrap');
     wp_enqueue_script('fontawesome');
+    wp_enqueue_script( 'js-file', get_template_directory_uri() . 'main.js');
 
     // ******************MON STYLE.CSS ******************************
     wp_register_style('style', get_stylesheet_uri());
@@ -57,12 +58,6 @@ function ph_init(){
         'hierarchical' => true,
         'show_admin_cloumn'=> true
     ]);
-    //Test pour faire un Custom Post Type
-    // register_post_type('galerie', [
-    //     'label' => 'Galerie',
-    //     'public' => true,
-    //     'menu_icon' => 'dashicons-format-gallery'
-    // ]);
 }
 
 // ********************************ADD_ACTION******************************
@@ -74,6 +69,8 @@ add_action('after_setup_theme', 'ph_supports');
 add_action('init', 'register_menu');
 // Ajout du style Bootstrap
 add_action( 'wp_enqueue_scripts', 'ph_register_assets');
+// Ajout des apprenants
+add_action( 'init', 'pax_register_post_types' );
 
 // ********************************CUSTOM_POST_PAX******************************
 
@@ -101,7 +98,6 @@ function pax_register_post_types() {
     
     register_post_type( 'apprenant', $args );
     }
-    add_action( 'init', 'pax_register_post_types' );
 
 // ********************************LENGHT EXCERPT******************************
     function custom_excerpt_length( $length ) {

@@ -27,7 +27,10 @@
                     );
                   }
                 ?>
+                <?= get_search_form() ?>
             </nav>
+            
           </div>
+          
       </header>
   <?php wp_body_open(); ?>
