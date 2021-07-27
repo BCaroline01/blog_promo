@@ -557,12 +557,19 @@ body{
         }
     }
 }
-.loadmore{
-    margin: 20px auto;
-    padding: 5px;
-    border: 2px solid $blue;
-    background-color: white;
-    cursor: url(img/cursor.svg)30 30, move;
+.btnLoadmoreWrapper{
+    a{
+        margin: 20px auto;
+        padding: 5px;
+        border: 2px solid $blue;
+        background-color: white;
+        cursor: url(img/cursor.svg)30 30, move;
+        color: black;
+        &:hover{
+            background-color: $blue;
+            border: 2px solid $blue;
+        }
+    }
 }
 /* --------------------------PAGE PRESENTATION----------------------- */
 

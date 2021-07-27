@@ -665,12 +665,18 @@ body {
   right: 0px;
 }
 
-.loadmore {
+.btnLoadmoreWrapper a {
   margin: 20px auto;
   padding: 5px;
   border: 2px solid #8dd8f8;
   background-color: white;
   cursor: url(img/cursor.svg) 30 30, move;
+  color: black;
+}
+
+.btnLoadmoreWrapper a:hover {
+  background-color: #8dd8f8;
+  border: 2px solid #8dd8f8;
 }
 
 /* --------------------------PAGE PRESENTATION----------------------- */

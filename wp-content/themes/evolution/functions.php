@@ -31,7 +31,7 @@ function ph_register_assets()
     wp_enqueue_style('bootstrap');
     wp_enqueue_script('bootstrap');
     wp_enqueue_script('jquery');
-    wp_enqueue_script('js-file', get_template_directory_uri() . '/main.js', array('jquery'));
+    wp_enqueue_script('js-file', get_template_directory_uri() . '/js/main.js', array('jquery'));
 
     // ******************MON STYLE.CSS ******************************
     wp_register_style('style', get_stylesheet_uri());
@@ -184,15 +184,16 @@ function ajaxloadmoreblogdemo($atts, $content = null)
     $atts = shortcode_atts(
         array(
             'post_type' => 'post',
-            'initial_posts' => '',
-            'loadmore_posts' => '',
+            'initial_posts' => '9',
+            'loadmore_posts' => '4',
         ),
-        $atts
+        $atts,
     );
     $additonalArr = array();
     $additonalArr['appendBtn'] = true;
     $additonalArr["offset"] = 0; ?>
     <div class="dcsAllPostsWrapper">
+    <input type="hidden" name="initial_posts" value="<?= $atts['initial_posts'] ?>">
         <input type="hidden" name="dcsPostType" value="<?= $atts['post_type'] ?>">
         <input type="hidden" name="offset" value="0">
         <input type="hidden" name="dcsloadMorePosts" value="<?= $atts['loadmore_posts'] ?>">
@@ -233,7 +234,7 @@ function dcsGetPostsFtn($atts, $additonalArr = array())
 
     if ($havePosts && $additonalArr['appendBtn']) { ?>
         <div class="btnLoadmoreWrapper">
-            <a href="javascript:void(0);" class="btn btn-primary dcsLoadMorePostsbtn">Load More</a>
+            <a href="javascript:void(0);" class="btn btn-primary dcsLoadMorePostsbtn">Charger plus d'articles</a>
         </div>
 
         <!-- loader for ajax -->
@@ -253,18 +254,15 @@ function dcsGetPostsFtn($atts, $additonalArr = array())
 
 //enqueue a custom js file which we will use to add our script to load more posts
 
-function dcsEnqueue_scripts()
-{
-    wp_enqueue_script('dcsLoadMorePostsScript', get_template_directory_uri() . '/main.js', array('jquery'), '20131205', true);
-    wp_localize_script(
-        'dcsLoadMorePostsScript',
-        'dcs_frontend_ajax_object',
-        array(
-            'ajaxurl' => admin_url('admin-ajax.php')
-        )
+function dcsEnqueue_scripts() {
+    wp_enqueue_script( 'dcsLoadMorePostsScript', get_template_directory_uri() . '/js/loadmoreposts.js', array( 'jquery' ), '20131205', true );
+    wp_localize_script( 'dcsLoadMorePostsScript', 'dcs_frontend_ajax_object',
+    array( 
+    'ajaxurl' => admin_url( 'admin-ajax.php' )
+    )
     );
-}
-add_action('wp_enqueue_scripts', 'dcsEnqueue_scripts');
+   }
+   add_action( 'wp_enqueue_scripts', 'dcsEnqueue_scripts' );
 
 //ajax callback function
 
