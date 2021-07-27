@@ -32,32 +32,161 @@
     </div>
 </section>
 <!-- *****************************Avis des Apprenants*************************** -->
-<section class="container-reviews">
-    <div class="all-reviews">
-        <?php
-        $args = array(
-            'number_post'      => -1,
-            'post_type'      => 'apprenant',
-        );
-
-        $pax = new WP_Query($args);
-
-        while ($pax->have_posts()) : $pax->the_post(); ?>
-
-            <div id="slider">
-                <a href="#" class="control_next">>></a>
-                <a href="#" class="control_prev"><</a>
-                <ul>
-                    <li><?php echo get_fields()['avis']; ?></li>
-                    <li><?php echo get_fields()['note']; ?></li>
-                </ul>
-                
-            </div>
-            
-
-        <?php endwhile; ?>
+<section class="review" id="slider">
+    <div id="before"><</div>
+    <div id="slide"></div>
+    <?php $posts = get_posts(array(
+        'numberposts' => -1,
+        'post_type' => 'apprenant',
+        ));
+        if ($posts) {
+            $i = 0;
+        foreach ($posts as $post) { 
+    ?>
+        
+    <div class="reviewdiv">
+        <h3><?php the_title(); ?></h2>
+        <p><?php echo get_fields()['avis']; ?></p>
+        <div class="image">
+            <?php
+                switch (get_fields()['note']) {
+                case 0:
+            ?>
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/empty_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/empty_star.svg" alt=""  />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/empty_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/empty_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/empty_star.svg" alt="" />
+            <?php
+                break;
+                case 0.5:
+            ?>
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/half_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/empty_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/empty_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/empty_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/empty_star.svg" alt="" />
+            <?php
+                break;
+                case 1:
+            ?>
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/empty_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/empty_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/empty_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/empty_star.svg" alt="" />
+            <?php
+                break;
+                case 1.5:
+            ?>
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/half_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/empty_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/empty_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/empty_star.svg" alt="" />
+            <?php
+                break;
+                case 2:
+            ?>
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/empty_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/empty_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/empty_star.svg" alt="" />
+            <?php
+                break;
+                case 2.5:
+            ?>
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/half_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/empty_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/empty_star.svg" alt="" />
+            <?php
+                break;
+                case 3:
+            ?>
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/empty_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/empty_star.svg" alt="" />
+            <?php
+                break;
+                case 3.5:
+            ?>
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/half_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>img/empty_star.svg" alt="" />
+            <?php
+                break;
+                case 4:
+            ?>
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/empty_star.svg" alt="" />
+            <?php
+                break;
+                case 4.5:
+            ?>
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/half_star.svg" alt="" />
+            <?php
+                break;
+                case 5:
+            ?>
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <img class="img" src="<?php echo get_template_directory_uri(); ?>/img/full_star.svg" alt="" />
+            <?php
+                break;
+                }
+            ?>
+        </div>
     </div>
+    
+    <?php }
+    } ?>
+    <div id="after">></div>
 </section>
-
-
 <?php get_footer(); ?>
+<script>
+    const next = document.getElementById('after')
+    const previous = document.getElementById('before')
+
+    var slide = Array.from(document.getElementsByClassName('reviewdiv'));
+    console.log(slide);
+    var numero = 0;
+    document.getElementById("slide").setAttribute('class', 'sliderDiv');
+document.getElementById("slide").innerHTML = slide[0].innerHTML;
+
+    next.addEventListener('click', function() {
+        numero = numero + 1;
+        if (numero < 0)
+            numero = slide.length - 1;
+        if (numero > slide.length - 1)
+            numero = 0;
+        document.getElementById("slide").setAttribute('class', 'sliderDiv');
+        document.getElementById("slide").innerHTML = slide[numero].innerHTML;
+    })
+
+    previous.addEventListener('click', function() {
+        numero = numero + -1;
+        if (numero < 0)
+            numero = slide.length - 1;
+        console.log(numero)
+        if (numero > slide.length - 1)
+            numero = 0;
+        document.getElementById("slide").setAttribute('class', 'sliderDiv');
+        document.getElementById("slide").innerHTML = slide[numero].innerHTML;
+    })
+</script>
