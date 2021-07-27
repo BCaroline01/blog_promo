@@ -15,8 +15,7 @@ function register_menu(){
 // ****************************************Ajout du style*******************************************
 function ph_register_assets () {
      // ******************* FONTS ***********************************
-     wp_register_style('fonts', 'href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"');
-     wp_enqueue_style( 'fonts' );
+     
      // ********************* BOOTSTRAP ********************************
      //style
     // wp_register_style('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
@@ -33,11 +32,12 @@ function ph_register_assets () {
     wp_enqueue_style('bootstrap');
     wp_enqueue_script('bootstrap');
     wp_enqueue_script('fontawesome');
-    wp_enqueue_script( 'js-file', get_template_directory_uri() . 'main.js');
+    wp_enqueue_script('jquery');
+    wp_enqueue_script( 'js-file', get_template_directory_uri() . '/main.js', array('jquery'));
 
     // ******************MON STYLE.CSS ******************************
     wp_register_style('style', get_stylesheet_uri());
-    wp_enqueue_style( 'style');
+    wp_enqueue_style('style');
 }
 function ph_init(){
     //test Taxonomy
