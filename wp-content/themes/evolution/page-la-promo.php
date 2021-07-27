@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <div class="title_promo">
     <img class="cross1" src="<?php echo get_template_directory_uri(); ?>/img/cross.svg" alt="cross">
-    <h1>LA PROMO</h1>
+    <h1><?php the_title(); ?></h1>
 </div>
 
 <div class="promo">

@@ -9,7 +9,6 @@
       </div>
       <div class="container_single_post">
         <div class="post_content">
-          <?php the_post_thumbnail('large', ['class' => 'picture', 'alt' => '']); ?>
           <?php the_content(); ?>
         </div>
         <div class="category">
@@ -21,7 +20,7 @@
       </div>
     </article>
     <div class="pagination">
-      <p><?php previous_post_link() ?></p>
+      <p><?php previous_post_link()?></p>
       <p><?php next_post_link() ?></p>
     </div>
 
