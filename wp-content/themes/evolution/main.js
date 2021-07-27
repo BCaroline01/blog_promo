@@ -44,3 +44,54 @@ jQuery(document).ready(function ($) {
       });
   
   });
+
+/////////BUTTON LOADMORE///////////////////////////////
+
+jQuery(function($){ 
+	$('.loadmore').click(function(){
+		var button = $(this),
+		    data = {
+			'action': 'loadmore',
+			'query': loadmore_params.posts, // that's how we get params from wp_localize_script() function
+			'page' : loadmore_params.current_page
+		};
+
+        
+        
+		$.ajax({ // you can also use $.post here 
+			url : loadmore_params.root + loadmore_params.ajaxurl, // AJAX handler
+			data : data,
+			type : 'POST',
+
+			beforeSend : function ( xhr ) {
+                xhr.setRequestHeader('X-WP-Nonce', loadmore_params.nonce);
+				button.text('Loading...'); // change the button text, you can also add a preloader image
+			},
+			success : function( data ){ 
+                console.log(data);
+				if( data ) { 
+					button.text( 'Charger plus d\'articles' ).prev().before(data); // insert new posts
+                    
+					loadmore_params.current_page++;
+ 
+					if ( loadmore_params.current_page == loadmore_params.max_page ) 
+						button.remove(); // if last page, remove the button
+				} 
+			}
+		});
+	});
+});
+
+
+/////SEARCH 
+
+// function expand() {
+//     $(".search").toggleClass("close");
+//     $(".input_search").toggleClass("square");
+//     if ($('.search').hasClass('close')) {
+//       $('input').focus();
+//     } else {
+//       $('input').blur();
+//     }
+//   }
+//   $('button').on('click', expand);
