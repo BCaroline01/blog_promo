@@ -177,8 +177,8 @@ add_filter('excerpt_length', 'custom_excerpt_length', 999);
 
 
 //add a shortcode 
-add_shortcode('ajaxloadmoreblogdemo', 'ajaxloadmoreblogdemo');
-function ajaxloadmoreblogdemo($atts, $content = null)
+add_shortcode('ajaxloadmore', 'ajaxloadmore');
+function ajaxloadmore($atts, $content = null)
 {
     ob_start();
     $atts = shortcode_atts(
@@ -186,9 +186,11 @@ function ajaxloadmoreblogdemo($atts, $content = null)
             'post_type' => 'post',
             'initial_posts' => '9',
             'loadmore_posts' => '4',
+            'cat'     => ''
         ),
         $atts,
     );
+   
     $additonalArr = array();
     $additonalArr['appendBtn'] = true;
     $additonalArr["offset"] = 0; ?>
@@ -229,9 +231,10 @@ function dcsGetPostsFtn($atts, $additonalArr = array())
         }
     } else {
         $havePosts = false;
-    }
+    } 
+  
     wp_reset_postdata();
-
+   
     if ($havePosts && $additonalArr['appendBtn']) { ?>
         <div class="btnLoadmoreWrapper">
             <a href="javascript:void(0);" class="btn btn-primary dcsLoadMorePostsbtn">Charger plus d'articles</a>
@@ -279,3 +282,4 @@ function dcsAjaxLoadMorePostsAjaxReq()
     dcsGetPostsFtn($atts, $additonalArr);
     die();
 }
+

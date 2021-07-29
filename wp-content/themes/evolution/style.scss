@@ -40,12 +40,16 @@ body{
 
 .barnav{
     background-color: black;
-    
-    z-index: 100;
+    z-index: 999;
     width: 100vw;
+    height: 100px;
     left : 0;
+    top: 0;
     padding : 0.3rem;
     display: flex;
+    position: fixed;
+    align-items: center;
+
     
     .logo_container {
     width: 50px;
@@ -228,6 +232,8 @@ body{
 
 /* ---------------------------PROMO-PAGE----------------------- */
 .title_promo{
+    box-sizing: border-box;
+    padding-top: 50px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -454,6 +460,7 @@ body{
 /* --------------------------PAGE ARTICLE----------------------- */
 
 .title_articles{
+    box-sizing: border-box;
     background-image: url(img/background_title.svg);
     background-size: 100%;
     min-height: 32vw;
@@ -472,60 +479,72 @@ body{
 }
 .container_post_all{
         display: flex;
-        
-    .post_all{
-        display: grid;
-        margin: 50px;
-        grid-template-columns: repeat(2, 30vw);
-        grid-template-rows: auto;
-        grid-auto-rows: min-content;
-        gap: 40px;
-        align-items: start;
+        .dcsDemoWrapper{ 
+            display: grid;
+            margin: 50px;
+            grid-template-columns: repeat(2, 30vw);
+            grid-template-rows: auto;
+            grid-auto-rows: min-content;
+            gap: 40px;
+            align-items: start;
 
-        article{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            article{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
 
-          img{
-              width: 20vw;
-              height: auto;
-            
-
-          }
-          h3{
-              margin-top: 25px;
-              a{
-                cursor: url(img/cursor.svg)30 30, move;
-                text-decoration: none;
-                color: black;
-                }
-          } 
-          p{
-            text-align: justify;
-          }
-          button{
-            text-align: center;
-            border: black solid 2px;
-             background-color: black;
-            padding: 0;
-            box-sizing: border-box;
-            a{
-                padding: 20px;
-                color: $blue;
-                cursor: url(img/cursor.svg)30 30, move;
-                
-                &:hover{
-                    color: black;
-                }
+            img{
+                width: 20vw;
+                height: 200px;
+                object-fit: cover;
             }
-            &:hover{
-                background-color: white;
+            h3{
+                margin-top: 25px;
+                a{
+                    cursor: url(img/cursor.svg)30 30, move;
+                    text-decoration: none;
+                    color: black;
+                    }
+            } 
+            p{
+                text-align: justify;
+            }
+            button{
+                text-align: center;
                 border: black solid 2px;
+                background-color: black;
+                padding: 0;
+                box-sizing: border-box;
+                a{
+                    padding: 20px;
+                    color: $blue;
+                    cursor: url(img/cursor.svg)30 30, move;
+                    
+                    &:hover{
+                        color: black;
+                    }
+                }
+                &:hover{
+                    background-color: white;
+                    border: black solid 2px;
+                }
             }
         }
-        
-    }
+        .btnLoadmoreWrapper{
+            text-align: center;
+            a{
+                margin: 20px auto;
+                padding: 5px;
+                border: 2px solid $blue;
+                background-color: white;
+                cursor: url(img/cursor.svg)30 30, move;
+                color: black;
+                &:hover{
+                    background-color: $blue;
+                    border: 2px solid $blue;
+                }
+            }
+        }
 }
     .category{
         position: relative;
@@ -557,61 +576,105 @@ body{
         }
     }
 }
-.btnLoadmoreWrapper{
-    a{
-        margin: 20px auto;
-        padding: 5px;
-        border: 2px solid $blue;
-        background-color: white;
-        cursor: url(img/cursor.svg)30 30, move;
-        color: black;
-        &:hover{
-            background-color: $blue;
-            border: 2px solid $blue;
+
+/* --------------------------PAGE PRESENTATION----------------------- */
+.page_pres{
+    background-image: url(img/background_pres.svg);
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: bottom;
+    margin: 0;
+    
+    .title_presentations{
+        box-sizing: border-box;
+        padding-top: 100px ;
+        position: relative;
+        margin: 50px 0;
+
+        .light_cross1{
+            position: absolute;
+            top: 100px;
+            right: 20%;
+        }
+
+        h1{   
+            padding: 60px 0;
+            color: $blue;
+            font-size: 60px;
+            text-align: center;
+        }
+        .light_cross2{
+            position: absolute;
+            bottom: 0;
+            left: 20%;
+        }
+
+    }
+    .presentation_all{
+        margin-top: 10%;
+        display: flex;
+        justify-content: center;
+        .presentation_container{
+            
+            display: grid;
+            grid-template-columns: repeat(2, 40vw);
+            gap: 25px;
+            .presentation{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                &:hover{
+                    border: black 2px solid;
+                    padding: 10px;
+                } 
+                img{
+                    width: 35vw;
+                    height: auto;
+                    padding-bottom: 10px;
+                }
+                .wp-block-file{
+                    a:nth-child(1){
+                            display: none;
+                        }
+                    .wp-block-file__button{
+                        opacity: 1;
+                        padding: 10px;
+                        background-color: black;
+                        color: $blue;
+                        border-radius: 0;
+                        cursor: url(img/cursor.svg)30 30, move;
+                    }
+                }
+            }
+        }
+    }
+    .pagination_pres{
+        padding: 50px;
+        ul{
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            li{
+                a{
+                    color: black;
+                    cursor: url(img/cursor.svg)30 30, move;
+                }
+            }
         }
     }
 }
-/* --------------------------PAGE PRESENTATION----------------------- */
-
-.title_presentations{
-    position: relative;
-    margin: 50px 0;
-
-    .light_cross1{
-        position: absolute;
-        top: 0;
-        right: 20%;
-    }
-
-    h1{   
-        padding: 60px 0;
-        color: $blue;
-        font-size: 60px;
-        text-align: center;
-    }
-    .light_cross2{
-        position: absolute;
-        bottom: 0;
-        left: 20%;
-    }
-
-}
-
-.presentation_container{
-    display: grid;
-    grid-template-columns: repeat(2, 40vw);
-}
-
-/* --------------------------PAGE ETCHNOLOGIES----------------------- */
+/* --------------------------PAGE TECHNOLOGIES----------------------- */
 .title_technologies{
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     align-items: center;
     margin: 5%;
+    padding-top: 50px;
  h1{
-     margin-left: 20px;
-        font-size: 50px;
-        color: $blue;
+    margin-left: 20px;
+    font-size: 50px;
+    color: $blue;
     }   
 }
 
@@ -673,6 +736,39 @@ body{
     }
 }
 
+/* --------------------------SINGLE APPRENANT----------------------- */
+
+.apprenant_page{
+    box-sizing: border-box;
+    padding: 50px 150px;
+    text-align: justify;
+    position: relative;
+    .img_pres{
+        .diamond_blue{
+            position: absolute;
+            top: -1%;
+            left: 31%;
+            z-index: 1;
+            width: 500px;
+            height: 500px;
+        }
+
+        .img_diamond{
+            width: 400px;
+            height: 400px;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            margin: 50px auto;
+            background-color: black;
+    
+            img{
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
+            }
+        }
+    }
+
+}
 
 /* ---------------------------FOOTER----------------------- */
 
@@ -686,17 +782,11 @@ footer{
 }
 
 
-
-
-
-
-
-
-
-
+/* ---------------------------SLIDER----------------------- */
 
 
 .review {
+
     width: 100%;
     color: rgb(0, 0, 0);
     display: flex;
@@ -717,20 +807,20 @@ footer{
     align-items: center;
     }
     .sliderDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .image {
-    display: flex;
-    flex-direction: row;
-    }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .image {
+            display: flex;
+            flex-direction: row;
+        }
     }
     }
     
     #slider {
     position: relative;
     width: 1200px;
-    margin: auto;
+    margin: 60px auto;
     display: flex;
     align-items: center;
     }

@@ -49,13 +49,13 @@ jQuery(document).ready(function ($) {
 
 /////SEARCH 
 
-// function expand() {
-//     $(".search").toggleClass("close");
-//     $(".input_search").toggleClass("square");
-//     if ($('.search').hasClass('close')) {
-//       $('input').focus();
-//     } else {
-//       $('input').blur();
-//     }
-//   }
-//   $('button').on('click', expand);
+function expand() {
+    $(".search").toggleClass("close");
+    $(".input_search").toggleClass("square");
+    if ($('.search').hasClass('close')) {
+      $('input').focus();
+    } else {
+      $('input').blur();
+    }
+  }
+  $('button').on('click', expand);
