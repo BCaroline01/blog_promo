@@ -3,9 +3,6 @@
 <div class="title_articles">
 	<h1><?php the_title(); ?></h1>
 </div>
-<div class="search_bar">
-    <?= get_search_form() ?>
-</div>
 <div class="container_post_all">
     <?php the_content() ?>
     

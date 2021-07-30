@@ -2,11 +2,9 @@
 <!-- *****************************BANNER*************************** -->
 <section id="home">
     <div class="banner">
-        <img class="banner-img" src="<?php echo get_template_directory_uri(); ?>/img/header1.jpg" alt="image du header">
+        <img class="banner-img" src="<?php echo get_template_directory_uri(); ?>/img/header.jpg" alt="image du header">
         <div class="title">
             <h1><?php echo get_bloginfo('name'); ?></h1>
-            <!-- <div class="ligne"></div> -->
-            <!-- <p><?php echo get_bloginfo('description'); ?></p> -->
         </div>
     </div>
 </section>
@@ -161,32 +159,32 @@
 <?php get_footer(); ?>
 <script>
     const next = document.getElementById('after')
-    const previous = document.getElementById('before')
+const previous = document.getElementById('before')
 
-    var slide = Array.from(document.getElementsByClassName('reviewdiv'));
-    console.log(slide);
-    var numero = 0;
-    document.getElementById("slide").setAttribute('class', 'sliderDiv');
+var slide = Array.from(document.getElementsByClassName('reviewdiv'));
+console.log(slide);
+var numero = 0;
+document.getElementById("slide").setAttribute('class', 'sliderDiv');
 document.getElementById("slide").innerHTML = slide[0].innerHTML;
 
-    next.addEventListener('click', function() {
-        numero = numero + 1;
-        if (numero < 0)
-            numero = slide.length - 1;
-        if (numero > slide.length - 1)
-            numero = 0;
-        document.getElementById("slide").setAttribute('class', 'sliderDiv');
-        document.getElementById("slide").innerHTML = slide[numero].innerHTML;
-    })
+next.addEventListener('click', function () {
+    numero = numero + 1;
+    if (numero < 0)
+        numero = slide.length - 1;
+    if (numero > slide.length - 1)
+        numero = 0;
+    document.getElementById("slide").setAttribute('class', 'sliderDiv');
+    document.getElementById("slide").innerHTML = slide[numero].innerHTML;
+})
 
-    previous.addEventListener('click', function() {
-        numero = numero + -1;
-        if (numero < 0)
-            numero = slide.length - 1;
-        console.log(numero)
-        if (numero > slide.length - 1)
-            numero = 0;
-        document.getElementById("slide").setAttribute('class', 'sliderDiv');
-        document.getElementById("slide").innerHTML = slide[numero].innerHTML;
-    })
+previous.addEventListener('click', function () {
+    numero = numero + -1;
+    if (numero < 0)
+        numero = slide.length - 1;
+    console.log(numero)
+    if (numero > slide.length - 1)
+        numero = 0;
+    document.getElementById("slide").setAttribute('class', 'sliderDiv');
+    document.getElementById("slide").innerHTML = slide[numero].innerHTML;
+})
 </script>

@@ -1,18 +1,21 @@
 .home{
-    position: relative;
-    .banner-img{
-    width: 100%;
-    height : auto;
-    }
-    .title{
-      display: flex;
-      justify-content: center;
-        h1{ 
-        position: absolute;
-        top: 10%;
-         color: $blue;   
-         font-size: 65px;
-         font-family: "open sans semibold";
+    .banner{
+        position: relative;
+
+        .banner-img{
+        width: 100%;
+        height : auto;
+        }
+        .title{
+        display: flex;
+        justify-content: center;
+            h1{ 
+            position: absolute;
+            top: 50%;
+            color: $blue;   
+            font-size: 65px;
+            font-family: "open sans semibold";
+            }
         }
     }
 }
