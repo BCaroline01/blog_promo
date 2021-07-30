@@ -82,10 +82,9 @@ body{
 }
 /* ---------------------------FRONT-PAGE----------------------- */
 .home{
-    width : 100vw;
     position: relative;
     .banner-img{
-    width : 100vw;
+    width: 100%;
     height : auto;
     }
     .title{
@@ -461,6 +460,7 @@ body{
 
 .title_articles{
     box-sizing: border-box;
+    margin-top: 50px;
     background-image: url(img/background_title.svg);
     background-size: 100%;
     min-height: 32vw;
@@ -493,41 +493,41 @@ body{
                 flex-direction: column;
                 align-items: center;
 
-            img{
-                width: 20vw;
-                height: 200px;
-                object-fit: cover;
-            }
-            h3{
-                margin-top: 25px;
-                a{
-                    cursor: url(img/cursor.svg)30 30, move;
-                    text-decoration: none;
-                    color: black;
-                    }
-            } 
-            p{
-                text-align: justify;
-            }
-            button{
-                text-align: center;
-                border: black solid 2px;
-                background-color: black;
-                padding: 0;
-                box-sizing: border-box;
-                a{
-                    padding: 20px;
-                    color: $blue;
-                    cursor: url(img/cursor.svg)30 30, move;
-                    
-                    &:hover{
+                img{
+                    width: 20vw;
+                    height: 200px;
+                    object-fit: cover;
+                }
+                h3{
+                    margin-top: 25px;
+                    a{
+                        cursor: url(img/cursor.svg)30 30, move;
+                        text-decoration: none;
                         color: black;
-                    }
+                        }
+                } 
+                p{
+                    text-align: justify;
                 }
-                &:hover{
-                    background-color: white;
+                button{
+                    text-align: center;
                     border: black solid 2px;
-                }
+                    background-color: black;
+                    padding: 0;
+                    box-sizing: border-box;
+                    a{
+                        padding: 20px;
+                        color: $blue;
+                        cursor: url(img/cursor.svg)30 30, move;
+                        
+                        &:hover{
+                            color: black;
+                        }
+                    }
+                    &:hover{
+                        background-color: white;
+                        border: black solid 2px;
+                    }
             }
         }
         .btnLoadmoreWrapper{
@@ -547,22 +547,36 @@ body{
         }
 }
     .category{
+        box-sizing: border-box;
         position: relative;
         margin: 50px 0;
+        padding: 30px 0;
         width: 25vw;
         background-color: black;
         color: $blue;
-        h2{
-            padding: 40px 20px;
+        li{
+            list-style: none;
+            padding: 10px 20px;
+            font-size: 30px;
+            ul{
+                li{
+                    &:nth-child(1){
+                        padding-top: 30px;
+                    }
+                    padding-left: 0 20px;
+                    font-size: 20px;
+                    a{
+                        color: $blue;
+                    }
+                }
+            }
         }
         .cross1{
             position: absolute;
             top: 20px;
             right: 20px;
         }
-        p{
-            padding-left: 20px;
-        }
+        
         .cross2{
             position: absolute;
             bottom: 20px;
@@ -573,6 +587,90 @@ body{
             position: absolute;
             bottom: 0px;
             right: 0px;
+        }
+    }
+}
+/* --------------------------PAGE CATEGORY POSTS----------------------- */
+.category_post{
+    ul{
+        margin-top: 100px;
+        margin-left: 50px;
+        list-style: none;
+        li{
+            
+           a{
+               
+                color: black;
+                font-size: 30px;
+           }
+        }
+    }
+    .dcsAllPostsWrapper{
+        .dcsDemoWrapper{ 
+            display: grid;
+            margin: 50px;
+            grid-template-columns: repeat(3, 30vw);
+            grid-template-rows: auto;
+            grid-auto-rows: min-content;
+            gap: 40px;
+            align-items: start;
+            article{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                img{
+                    width: 20vw;
+                    height: 200px;
+                    object-fit: cover;
+                }
+                h3{
+                    margin-top: 25px;
+                    a{
+                        cursor: url(img/cursor.svg)30 30, move;
+                        text-decoration: none;
+                        color: black;
+                        }
+                } 
+                p{
+                    text-align: justify;
+                }
+                button{
+                    text-align: center;
+                    border: black solid 2px;
+                    background-color: black;
+                    padding: 0;
+                    box-sizing: border-box;
+                    a{
+                        padding: 20px;
+                        color: $blue;
+                        cursor: url(img/cursor.svg)30 30, move;
+                        
+                        &:hover{
+                            color: black;
+                        }
+                    }
+                    &:hover{
+                        background-color: white;
+                        border: black solid 2px;
+                    }
+                }
+            }
+        }   
+        .btnLoadmoreWrapper{
+            text-align: center;
+            a{
+                margin: 20px auto;
+                padding: 5px;
+                border: 2px solid $blue;
+                background-color: white;
+                cursor: url(img/cursor.svg)30 30, move;
+                color: black;
+                &:hover{
+                    background-color: $blue;
+                    border: 2px solid $blue;
+                }
+            }
         }
     }
 }

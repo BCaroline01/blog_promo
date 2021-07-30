@@ -8,6 +8,7 @@
 </div>
 <div class="container_post_all">
     <?php the_content() ?>
+    
     <div class="category">
           <img class="cross1" src="<?php echo get_template_directory_uri(); ?>/img/cross.svg" alt="cross">
           <?php wp_list_categories();?>

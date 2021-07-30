@@ -186,16 +186,16 @@ function ajaxloadmore($atts, $content = null)
             'post_type' => 'post',
             'initial_posts' => '9',
             'loadmore_posts' => '4',
-            'cat'     => ''
+            'category_id'     => ''
         ),
         $atts,
     );
-   
+
     $additonalArr = array();
     $additonalArr['appendBtn'] = true;
     $additonalArr["offset"] = 0; ?>
     <div class="dcsAllPostsWrapper">
-    <input type="hidden" name="initial_posts" value="<?= $atts['initial_posts'] ?>">
+        <input type="hidden" name="initial_posts" value="<?= $atts['initial_posts'] ?>">
         <input type="hidden" name="dcsPostType" value="<?= $atts['post_type'] ?>">
         <input type="hidden" name="offset" value="0">
         <input type="hidden" name="dcsloadMorePosts" value="<?= $atts['loadmore_posts'] ?>">
@@ -216,9 +216,9 @@ function dcsGetPostsFtn($atts, $additonalArr = array())
         'offset' => $additonalArr["offset"]
     );
 
-    $allPosts = new WP_Query($args);
-    $havePosts = true;
-    if ($allPosts->have_posts()) {
+    if (!empty($atts['category_id'])) {
+        $args = 'cat= ' . $atts['category_id'] . '';
+        $allPosts = new WP_Query($args);
         while ($allPosts->have_posts()) {
             $allPosts->the_post(); ?>
             <article class="loadMoreRepeat">
@@ -227,14 +227,31 @@ function dcsGetPostsFtn($atts, $additonalArr = array())
                 <?php the_excerpt(); ?>
                 <button><a href="<?php the_permalink(); ?>" class="post_link">Lire la suite</a></button>
             </article>
-        <?php
+            <?php
         }
+        wp_reset_postdata();
     } else {
-        $havePosts = false;
-    } 
-  
+        $allPosts = new WP_Query($args);
+        $havePosts = true;
+        if ($allPosts->have_posts()) {
+            while ($allPosts->have_posts()) {
+                $allPosts->the_post(); ?>
+                <article class="loadMoreRepeat">
+                    <?php the_post_thumbnail('medium', ['class' => 'thumbnail', 'alt' => '']); ?>
+                    <h3><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h3>
+                    <?php the_excerpt(); ?>
+                    <?php the_meta(); ?>
+                    <button><a href="<?php the_permalink(); ?>" class="post_link">Lire la suite</a></button>
+                </article>
+        <?php
+            }
+        } else {
+            $havePosts = false;
+        }
+    }
+
     wp_reset_postdata();
-   
+
     if ($havePosts && $additonalArr['appendBtn']) { ?>
         <div class="btnLoadmoreWrapper">
             <a href="javascript:void(0);" class="btn btn-primary dcsLoadMorePostsbtn">Charger plus d'articles</a>
@@ -257,15 +274,18 @@ function dcsGetPostsFtn($atts, $additonalArr = array())
 
 //enqueue a custom js file which we will use to add our script to load more posts
 
-function dcsEnqueue_scripts() {
-    wp_enqueue_script( 'dcsLoadMorePostsScript', get_template_directory_uri() . '/js/loadmoreposts.js', array( 'jquery' ), '20131205', true );
-    wp_localize_script( 'dcsLoadMorePostsScript', 'dcs_frontend_ajax_object',
-    array( 
-    'ajaxurl' => admin_url( 'admin-ajax.php' )
-    )
+function dcsEnqueue_scripts()
+{
+    wp_enqueue_script('dcsLoadMorePostsScript', get_template_directory_uri() . '/js/loadmoreposts.js', array('jquery'), '20131205', true);
+    wp_localize_script(
+        'dcsLoadMorePostsScript',
+        'dcs_frontend_ajax_object',
+        array(
+            'ajaxurl' => admin_url('admin-ajax.php')
+        )
     );
-   }
-   add_action( 'wp_enqueue_scripts', 'dcsEnqueue_scripts' );
+}
+add_action('wp_enqueue_scripts', 'dcsEnqueue_scripts');
 
 //ajax callback function
 
