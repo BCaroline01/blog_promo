@@ -1,0 +1,71 @@
+.title_technologies{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 5%;
+    padding-top: 50px;
+ h1{
+    margin-left: 20px;
+    font-size: 50px;
+    color: $blue;
+    }   
+}
+
+.techno_all{
+    .front_end{
+        h2{
+            margin: 50px;
+        }
+        .logo{
+            margin: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 30vw);
+            text-align: center;
+            img{
+                margin: 20px;
+                width: 100px;
+                height: auto;
+            }
+        }
+    }
+    .back_end{
+        h2{
+            margin: 50px;
+        }
+        .logo{
+            margin: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 30vw);
+            text-align: center;
+            img{
+                margin: 20px;
+                width: 120px;
+                height: auto;
+            }
+        }
+    }
+    .pao{
+        h2{
+            margin: 50px;
+        }
+        .logo{
+            margin: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 30vw);
+            text-align: center;
+            img{
+                margin: 20px;
+                width: 100px;
+                height: auto;
+            }
+        }
+    }
+}
+.background{
+    display: flex;
+    justify-content: flex-end;
+    .crossfooter{
+        margin: 50px;
+    }
+}

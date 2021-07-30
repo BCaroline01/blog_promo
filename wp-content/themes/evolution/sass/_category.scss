@@ -1,0 +1,84 @@
+
+.category_post{
+    ul{
+        margin-top: 100px;
+        margin-left: 50px;
+        list-style: none;
+        li{
+            
+           a{
+               
+                color: black;
+                font-size: 30px;
+           }
+        }
+    }
+    .dcsAllPostsWrapper{
+        .dcsDemoWrapper{ 
+            display: grid;
+            margin: 50px;
+            grid-template-columns: repeat(3, 30vw);
+            grid-template-rows: auto;
+            grid-auto-rows: min-content;
+            gap: 40px;
+            align-items: start;
+            article{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                img{
+                    width: 20vw;
+                    height: 200px;
+                    object-fit: cover;
+                }
+                h3{
+                    margin-top: 25px;
+                    a{
+                        cursor: url(../img/cursor.svg)30 30, move;
+                        text-decoration: none;
+                        color: black;
+                        }
+                } 
+                p{
+                    text-align: justify;
+                }
+                button{
+                    text-align: center;
+                    border: black solid 2px;
+                    background-color: black;
+                    padding: 0;
+                    box-sizing: border-box;
+                    a{
+                        padding: 20px;
+                        color: $blue;
+                        cursor: url(../img/cursor.svg)30 30, move;
+                        
+                        &:hover{
+                            color: black;
+                        }
+                    }
+                    &:hover{
+                        background-color: white;
+                        border: black solid 2px;
+                    }
+                }
+            }
+        }   
+        .btnLoadmoreWrapper{
+            text-align: center;
+            a{
+                margin: 20px auto;
+                padding: 5px;
+                border: 2px solid $blue;
+                background-color: white;
+                cursor: url(../img/cursor.svg)30 30, move;
+                color: black;
+                &:hover{
+                    background-color: $blue;
+                    border: 2px solid $blue;
+                }
+            }
+        }
+    }
+}

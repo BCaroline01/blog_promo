@@ -1,0 +1,124 @@
+.home{
+    position: relative;
+    .banner-img{
+    width: 100%;
+    height : auto;
+    }
+    .title{
+      display: flex;
+      justify-content: center;
+        h1{ 
+        position: absolute;
+        top: 10%;
+         color: $blue;   
+         font-size: 65px;
+         font-family: "open sans semibold";
+        }
+    }
+}
+
+.container-articles{
+    .title-h2-front-page{
+        margin: 30px 0;
+        text-align: center;
+    }
+
+    .last-articles{ 
+        
+        padding: 10px; 
+        display: grid;
+        grid-template-columns: repeat(3, 32vw);
+        
+        .post{
+            cursor: url(../img/cursor.svg)30 30, move;
+            padding: 30px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            &:hover{
+                border: black 2px solid;
+            }
+
+          img{
+              width: 20vw;
+              height: 200px;
+              object-fit: cover;
+
+          }
+          h3{
+              margin-top: 25px;
+              a{
+                cursor: url(../img/cursor.svg)30 30, move;
+                text-decoration: none;
+                color: black;
+                }
+          } 
+          p{
+            text-align: justify;
+          }
+          button{
+            text-align: center;
+            border: black solid 2px;
+            background-color: white;
+            padding: 0;
+            &:hover{
+                background-color: black;
+            }
+            .post_link{
+                cursor: url(../img/cursor.svg)30 30, move;
+                text-decoration: none;
+                color: black;
+                padding: 5px 30px;
+                box-sizing: border-box;
+                &:hover{
+                    color: white;
+                }
+            }
+          }
+        }
+    }
+}
+
+
+.review {
+
+    width: 100%;
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: hidden;
+    #before,
+    #after {
+    cursor: pointer;
+    font-size: 35px;
+    background-color: transparent;
+    border: none;
+    color: rgb(0, 0, 0);
+    }
+    .reviewdiv {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    }
+    .sliderDiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .image {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+    }
+    
+    #slider {
+    position: relative;
+    width: 1200px;
+    margin: 60px auto;
+    display: flex;
+    align-items: center;
+    }
+    .img {
+    width: 35px;
+    }

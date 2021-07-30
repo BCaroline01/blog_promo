@@ -1,0 +1,93 @@
+.title_promo{
+    box-sizing: border-box;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 5%;
+ h1{
+     margin-left: 20px;
+        font-size: 50px;
+        color: $blue;
+    }   
+}
+
+.promo{
+    width: 100%;
+    background-image: url(../img/background_promo.png);
+    background-size: cover;
+    background-position: center;
+   
+   
+    .diamond_container{
+    width: 70vw;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px auto ;
+    justify-content: center;
+    
+    
+        .diamond{
+        position: relative;    
+        display: flex;
+        width: 400px;
+        height: 400px;
+        cursor: url(../img/cursor.svg)30 30, move;
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        margin: 0 40px;
+        background-color: black;
+
+        &:nth-child(3n + 1) { margin-top: 10%;
+                                flex-basis: 40%; }
+        &:nth-child(3n + 2) { margin-top: 10%;
+                            flex-basis: 40%; }
+        &:nth-child(3n + 3) { position: absolute; 
+                            top: 96%;  }
+        &:nth-child(3n + 6) { position: absolute; 
+                            top: 173%;  }
+        @media (min-width: 1400px) { 
+                
+            &:nth-child(3n + 1) { margin-top: 10%;
+                flex-basis: 400px; }
+            &:nth-child(3n + 2) { margin-top: 10%;
+                        flex-basis: 400px; }
+            &:nth-child(3n + 3) {position: absolute; 
+                top: 76%; }
+            &:nth-child(3n + 6) {position: absolute; 
+                top: 132%;  }
+
+            }
+            a{ 
+                cursor: url(../img/cursor.svg)30 30, move;    
+                .diamond_img{
+                    object-fit: cover;
+                    object-position: center;
+                    width: 100%;
+                }
+
+                .overlay {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    height: 100%;
+                    width: 100%;
+                    opacity: 0;
+                    transition: .5s ease;
+                    background-color: black;
+                    &:hover{opacity: 1;}
+                
+                    p{
+                        width: 80%;
+                        padding-top: 30%;
+                        padding-left: 20%;
+                        color: $blue;
+                        text-align: center;
+                        
+                    }
+                }
+            }
+        }   
+    }  
+}

@@ -1,0 +1,43 @@
+
+.barnav{
+    background-color: black;
+    z-index: 999;
+    width: 100vw;
+    height: 100px;
+    left : 0;
+    top: 0;
+    padding : 0.3rem;
+    display: flex;
+    position: fixed;
+    align-items: center;
+
+    
+    .logo_container {
+    width: 50px;
+    height: auto;
+    padding-left: 1rem;
+    padding-top: 1rem;
+}
+
+        .menu-main-menu-container{
+        width: 90vw;
+            ul{
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                width: 100%;
+                list-style: none;
+                margin-bottom: 0;
+                li{
+                    padding-top : 0.5rem;
+                    padding-bottom : 0.5rem;
+                    padding-left: 2rem;
+                    font-size: 1rem;
+                    
+                    a{
+                        color: $blue;
+                    }
+                }
+            }
+        }
+}

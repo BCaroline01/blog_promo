@@ -1,0 +1,25 @@
+$blue : #8dd8f8;
+
+/* -------------Font--------------*/
+@font-face {
+    font-family: "open sans regular";
+    font-style: normal;
+    font-weight: normal;
+    src: local('OpenSans-Regular'), url('font/OpenSans-Regular') format('.ttf');
+    }
+
+@font-face {
+    font-family: "open sans semibold";
+    src: local('OpenSans-SemiBold'), url('font/OpenSans-SemiBold') format('.ttf');
+}    
+/* -------------Base--------------*/
+*{
+    padding:0;
+    margin: 0;
+}
+
+body{
+    font-family: "open sans regular";
+    
+}
+
